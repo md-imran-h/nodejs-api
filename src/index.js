@@ -11,7 +11,13 @@ app.use(
 app.get("/", (req, res) => {
     res.json({ message: "ok" });
 });
+
 app.use("/programming-languages", programmingLanguagesRouter);
+
+// app.delete('/:id', (req, res) => {
+//     console.log('hello');
+//     console.log(req.params.id);
+// });
 
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || 500;

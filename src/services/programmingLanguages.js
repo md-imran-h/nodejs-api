@@ -66,9 +66,15 @@ async function remove(id) {
     return { message };
 }
 
+async function search(id) {
+    const rows = await db.callSpSearch(id);
+    const data = helper.emptyOrRows(rows);
+
+    return {
+        data
+    };
+}
+
 module.exports = {
-    getMultiple,
-    create,
-    remove,
-    update
+    
 }

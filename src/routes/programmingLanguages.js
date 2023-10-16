@@ -41,5 +41,13 @@ router.delete("/:id", async function (req, res, next) {
     }
 });
 
+router.get("/:id", async function (req, res, next) {
+    try {
+        res.json(await programmingLanguages.search(req.params.id));
+    }  catch (err) {
+        console.error(`Error while searching programming languages `, err.message);
+        next(err);
+    }
+});
 
 module.exports = router;
